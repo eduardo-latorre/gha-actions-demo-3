@@ -1,6 +1,6 @@
-# Example 5 - Using Docker
+# Example 4 - Using JS actions
 name: 'Deploy to AWS S3'
-description: 'Description a static website via AWS S3'
+description: 'Deploy a static website via AWS S3'
 inputs: # Using inputs
   bucket:
     description: 'The S3 bucket name.'
@@ -12,16 +12,17 @@ inputs: # Using inputs
   dist-folder:
     description: 'The folder containing deployable files.'
     required: true
-outputs:
+outputs: # Using outputs
   website-url:
     description: 'Website URL of the AWS Bucket'
 runs:
-  using: 'docker' # Docker action
-  image: 'Dockerfile' # Path to Dockerfile, or use a dockerhub image if needed
+  using: 'node16' # Especify Node type action
+  main: 'main.js' # Path to the main file
 
-# # Example 4 - Using JS actions
+
+# # Example 5 - Using Docker
 # name: 'Deploy to AWS S3'
-# description: 'Deploy a static website via AWS S3'
+# description: 'Description a static website via AWS S3'
 # inputs: # Using inputs
 #   bucket:
 #     description: 'The S3 bucket name.'
@@ -33,9 +34,9 @@ runs:
 #   dist-folder:
 #     description: 'The folder containing deployable files.'
 #     required: true
-# outputs: # Using outputs
+# outputs:
 #   website-url:
 #     description: 'Website URL of the AWS Bucket'
 # runs:
-#   using: 'node16' # Especify Node type action
-#   main: 'main.js' # Path to the main file
+#   using: 'docker' # Docker action
+#   image: 'Dockerfile' # Path to Dockerfile, or use a dockerhub image if needed
